@@ -10,6 +10,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -49,3 +50,4 @@ crashlytics-build.properties
 
 UserSettings/
 ProjectSettings/
+UpgradeLog.htm

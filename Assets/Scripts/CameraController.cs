@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     //VARIABLES
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private Transform playerBody;
+    [SerializeField] private Transform cameraLocation;
     
     //REFERENCES
     float xRotation = 0f;
@@ -27,5 +28,7 @@ public class CameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        transform.position = cameraLocation.position;
     }
 }

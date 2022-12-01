@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour
     //REFERENCES
     private CharacterController controller;
     bool isGrounded;
+    private Animator anim;
 
     private void Start()
     {
@@ -55,13 +56,14 @@ public class playerController : MonoBehaviour
         {
             Run();
         }
-        else if(moveDirection != Vector3.zero)
+        else
         {
             Idle();
         }
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
+            Jump();
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         
@@ -74,18 +76,23 @@ public class playerController : MonoBehaviour
     
     private void Idle()
     {
-        anim.SetFloat("Speed", 0);
+        anim.SetFloat("Speed", 0, 0.1f, Time.deltaTime);
     }
 
     private void Walk()
     {
         moveSpeed = walkSpeed;
-        anim.SetFloat("Speed", 0.25);
+        anim.SetFloat("Speed", 2, 0.1f, Time.deltaTime);
     }
 
     private void Run()
     { 
         moveSpeed = runSpeed;
-        anim.SetFloat("Speed", 0.5);
+        anim.SetFloat("Speed", 3, 0.1f, Time.deltaTime);
+    }
+
+    private void Jump()
+    {
+        anim.SetFloat("Speed", 4, 0.1f, Time.deltaTime);
     }
 }

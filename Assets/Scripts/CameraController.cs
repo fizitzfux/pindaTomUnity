@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private Transform playerBody;
     [SerializeField] private Transform cameraLocation;
+    [SerializeField] private InventoryUI inventoryUI;
+    
     
     //REFERENCES
     float xRotation = 0f;
@@ -19,6 +21,16 @@ public class CameraController : MonoBehaviour
     }
 
     void Update()
+    {
+        transform.position = cameraLocation.position;
+        if(!inventoryUI.InventoryOpen)
+        {
+            Rotation();
+        }
+
+    }
+
+    private void Rotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

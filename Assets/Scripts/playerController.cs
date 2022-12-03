@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour
     [SerializeField] private float groundDistance;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private InventoryUI inventoryUI;
 
     private Vector3 moveDirection;
     private Vector3 velocity;

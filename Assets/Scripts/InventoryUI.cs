@@ -80,6 +80,7 @@ public class InventoryUI : MonoBehaviour
     private void OpenInventory()
     {
         ChangeCursorState(false);
+        OnInventoryTabClicked();
         inventoryOpen = true;
         inventoryParent.SetActive(true);
     }

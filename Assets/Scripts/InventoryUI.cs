@@ -50,9 +50,10 @@ public class InventoryUI : MonoBehaviour
             AddItemSlots(currentItemCount);
         }
 
+
         for(int i = 0; i < itemSlotList.Count; ++i)
         {
-            if(i <= currentItemCount)
+            if(i < currentItemCount)
             {
                 //update the current item in the slot
                 itemSlotList[i].AddItem(Inventory.instance.inventoryItemList[i]);

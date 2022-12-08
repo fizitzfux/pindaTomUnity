@@ -25,5 +25,11 @@ public class Inventory : MonoBehaviour
         inventoryItemList.Add(item);
         onItemChange.Invoke();
     }
+
+    public void RemoveItem(Item item)
+    {
+        inventoryItemList.Remove(item);
+        onItemChange.Invoke();
+    }
     
 }

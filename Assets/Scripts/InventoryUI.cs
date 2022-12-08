@@ -11,6 +11,8 @@ public class InventoryUI : MonoBehaviour
 
     // REFERENCES
     public bool InventoryOpen => inventoryOpen;
+    public Behaviour CameraController;
+    public Behaviour PlayerController;
     public GameObject inventoryParent;
     public GameObject inventoryTab;
     public GameObject craftingTab;
@@ -84,6 +86,8 @@ public class InventoryUI : MonoBehaviour
         OnInventoryTabClicked();
         inventoryOpen = true;
         inventoryParent.SetActive(true);
+        PlayerController.enabled = false;
+        CameraController.enabled = false;
     }
 
     private void CloseInventory()
@@ -91,6 +95,8 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(true);
         inventoryOpen = false;
         inventoryParent.SetActive(false);
+        PlayerController.enabled = true;
+        CameraController.enabled = true;
     }
 
     public void OnCraftingTabClicked()

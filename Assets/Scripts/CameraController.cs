@@ -23,10 +23,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.position = cameraLocation.position;
-        if(!inventoryUI.InventoryOpen)
-        {
+        //if(!inventoryUI.InventoryOpen)
+        //{
             Rotation();
-        }
+        //}
 
     }
 

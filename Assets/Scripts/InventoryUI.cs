@@ -7,12 +7,15 @@ public class InventoryUI : MonoBehaviour
     // VARIABLES
     private bool inventoryOpen = false;
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
+    private float normalWalkSpeed;
+    private float normalRunSpeed;
+    private float normalMouseSensitivity;
 
 
     // REFERENCES
     public bool InventoryOpen => inventoryOpen;
-    public Behaviour CameraController;
-    public Behaviour PlayerController;
+    public GameObject Player;
+    public GameObject Camera;
     public GameObject inventoryParent;
     public GameObject inventoryTab;
     public GameObject craftingTab;
@@ -21,6 +24,10 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+        normalWalkSpeed = this.Player.GetComponent<playerController>().walkSpeed;
+        normalRunSpeed = this.Player.GetComponent<playerController>().runSpeed;
+        normalMouseSensitivity = this.Camera.GetComponent<CameraController>().mouseSensitivity;
+
         Inventory.instance.onItemChange += UpdateInventoryUI;
         UpdateInventoryUI();
     }
@@ -29,6 +36,7 @@ public class InventoryUI : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Inventory toggled");
             if(inventoryOpen)
             {
                 //close inventory
@@ -39,6 +47,10 @@ public class InventoryUI : MonoBehaviour
                 //open inventory
                 OpenInventory();
             }
+        }
+        else if(inventoryOpen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseInventory();
         }
     }
 
@@ -86,8 +98,10 @@ public class InventoryUI : MonoBehaviour
         OnInventoryTabClicked();
         inventoryOpen = true;
         inventoryParent.SetActive(true);
-        PlayerController.enabled = false;
-        CameraController.enabled = false;
+
+        this.Player.GetComponent<playerController>().walkSpeed = 0;
+        this.Player.GetComponent<playerController>().runSpeed = 0;
+        this.Camera.GetComponent<CameraController>().mouseSensitivity = 0;
     }
 
     private void CloseInventory()
@@ -95,8 +109,10 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(true);
         inventoryOpen = false;
         inventoryParent.SetActive(false);
-        PlayerController.enabled = true;
-        CameraController.enabled = true;
+
+        this.Player.GetComponent<playerController>().walkSpeed = normalWalkSpeed;
+        this.Player.GetComponent<playerController>().runSpeed = normalRunSpeed;
+        this.Camera.GetComponent<CameraController>().mouseSensitivity = normalMouseSensitivity;
     }
 
     public void OnCraftingTabClicked()

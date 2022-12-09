@@ -6,15 +6,14 @@ public class playerController : MonoBehaviour
 {
     //VRAIABLES
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
+    [SerializeField] public float walkSpeed;
+    [SerializeField] public float runSpeed;
 
     [SerializeField] private float gravity;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float jumpHeight;
-    [SerializeField] private InventoryUI inventoryUI;
 
     private Vector3 moveDirection;
     private Vector3 velocity;

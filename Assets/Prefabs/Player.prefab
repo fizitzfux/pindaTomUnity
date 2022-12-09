@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 2920611791626028419}
   - component: {fileID: -1961458620099283723}
   - component: {fileID: -3820366561489124906}
-  - component: {fileID: 5007538057939642402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -102,7 +101,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   jumpHeight: 1
-  inventoryUI: {fileID: 5007538057939642402}
 --- !u!114 &4575873028810101361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,25 +198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 4575873030307816491}
   offset: {x: 0, y: 0, z: 0}
---- !u!114 &5007538057939642402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584859476570557689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89636411f1addd2498a3155bdbcb09d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraController: {fileID: 4575873030307816487}
-  PlayerController: {fileID: 4575873028810101362}
-  inventoryParent: {fileID: 2949849147708419138}
-  inventoryTab: {fileID: 2949849147354850910}
-  craftingTab: {fileID: 2949849148036945232}
-  itemSlotPrefab: {fileID: 6766608960075338790, guid: b1e743c2e2e291446a1c73cdb5bd238b, type: 3}
-  inventoryItemTransform: {fileID: 0}
 --- !u!1 &2949849146822515706
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,8 +790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89636411f1addd2498a3155bdbcb09d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraController: {fileID: 0}
-  PlayerController: {fileID: 0}
+  Player: {fileID: 584859476570557689}
+  Camera: {fileID: 4575873030307816491}
   inventoryParent: {fileID: 2949849147708419138}
   inventoryTab: {fileID: 2949849147354850910}
   craftingTab: {fileID: 2949849148036945232}
@@ -2907,7 +2886,6 @@ MonoBehaviour:
   mouseSensitivity: 250
   playerBody: {fileID: 6864058510882791818}
   cameraLocation: {fileID: 279737978421630838}
-  inventoryUI: {fileID: 0}
 --- !u!1 &5560602177836595516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,8 +3081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuParent: {fileID: 5560602177836595516}
-  CameraController: {fileID: 4575873030307816487}
-  PlayerController: {fileID: 4575873028810101362}
+  Player: {fileID: 584859476570557689}
+  Camera: {fileID: 4575873030307816491}
 --- !u!1 &5560602178988972945
 GameObject:
   m_ObjectHideFlags: 0

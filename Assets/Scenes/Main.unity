@@ -360,9 +360,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 127.0.0.1
-    Port: 6969
-    ServerListenAddress: 
+    Address: 
+    Port: 0
+    ServerListenAddress: 0.0.0.0
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunInBackground: 1
-  LogLevel: 1
+  LogLevel: 0
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 477924047}
@@ -431,6 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 727467881}
   - component: {fileID: 727467882}
+  - component: {fileID: 727467883}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -471,6 +472,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d795db3bbdc05bb4aaf0585ee7126104, type: 2}
   - {fileID: 11400000, guid: 8d68ff4489143364ba2b687cd9762bea, type: 2}
   - {fileID: 11400000, guid: 116a87be916b1324db7f80f6a16f7c0d, type: 2}
+--- !u!114 &727467883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727467880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2a0c01ff8174c4babc14a190189f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NetworkManagerObject: {fileID: 477924046}
 --- !u!1001 &734783458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,6 +947,7 @@ GameObject:
   - component: {fileID: 1342458851}
   - component: {fileID: 1342458850}
   - component: {fileID: 1342458854}
+  - component: {fileID: 1342458855}
   m_Layer: 5
   m_Name: DebugMenu
   m_TagString: Untagged
@@ -1039,6 +1054,27 @@ MonoBehaviour:
   ServerButton: {fileID: 1179951124}
   HostButton: {fileID: 7190858}
   ClientButton: {fileID: 1961731266}
+--- !u!114 &1342458855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342458849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17737e0516da2445b9b0077ae2bd9b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Visible: 1
+  m_MaxRefreshRate: 30
+  <CustomStyleSheet>k__BackingField: {fileID: 0}
+  <PanelSettingsOverride>k__BackingField: {fileID: 0}
+  <Position>k__BackingField:
+    <OverridePosition>k__BackingField: 1
+    m_PositionLeftToRight: 0
+    m_PositionTopToBottom: 0
+  <Configuration>k__BackingField: {fileID: 11400000, guid: 8f1b4e3792d8446399527749cfb591a2, type: 2}
 --- !u!114 &1961731266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}

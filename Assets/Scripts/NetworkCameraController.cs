@@ -5,14 +5,14 @@ using Unity.Netcode;
 
 public class NetworkCameraController : NetworkBehaviour
 {
-    public GameObject camera;
+    public GameObject Camera;
     public Vector3 offset;
 
     void Start()
     {
         if (IsOwner)
         {
-            camera.SetActive(true);
+            Camera.SetActive(true);
         }
     }
 

@@ -16,7 +16,11 @@ public class NetworkConfigHandler : MonoBehaviour
         Debug.Log("Attempting to start...");
         if (NetworkConfig.Host) NetworkManager.Singleton.StartHost();
         else if (NetworkConfig.Server) NetworkManager.Singleton.StartServer();
-        else NetworkManager.Singleton.StartClient();
+        #if UNITY_EDITOR
+            Debug.Log("Started Host because of editor");
+            NetworkManager.Singleton.StartHost();
+        #endif
+        NetworkManager.Singleton.StartClient();
     }
     void Awake()
     {

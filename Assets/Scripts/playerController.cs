@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class playerController : MonoBehaviour
+public class playerController : NetworkBehaviour
 {
     //VRAIABLES
     [SerializeField] private float moveSpeed;
@@ -22,16 +23,18 @@ public class playerController : MonoBehaviour
     private CharacterController controller;
     bool isGrounded;
     private Animator anim;
+    private AudioHandler Audio;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+        Audio = GetComponent<AudioHandler>();
     }
 
     private void Update()
     {
-        Move();
+        if (IsLocalPlayer) Move();
     }
 
     private void Move()
@@ -83,12 +86,14 @@ public class playerController : MonoBehaviour
     {
         moveSpeed = walkSpeed;
         anim.SetFloat("Speed", 2, 0.1f, Time.deltaTime);
+        Audio.PlayerSound("walk");
     }
 
     private void Run()
     { 
         moveSpeed = runSpeed;
         anim.SetFloat("Speed", 3, 0.1f, Time.deltaTime);
+        Audio.PlayerSound("run");
     }
 
     private void Jump()

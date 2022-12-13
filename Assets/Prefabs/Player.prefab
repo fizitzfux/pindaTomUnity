@@ -159,7 +159,7 @@ MonoBehaviour:
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
-  InLocalSpace: 1
+  InLocalSpace: 0
   Interpolate: 1
 --- !u!114 &2920611791626028419
 MonoBehaviour:
@@ -352,8 +352,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17afaae7556917445b0e619b73e05a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPositions:
+  - {x: 0, y: 5, z: 0}
+  - {x: 20, y: 2, z: 0}
+  - {x: 10, y: 5, z: 30}
   stateText: {fileID: 4146152668179900404}
   startText: {fileID: 2483106839318877500}
+  player: {fileID: 584859476570557689}
+  lobbyCanvas: {fileID: 1645775872597130014}
 --- !u!1 &2386270547064577358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,7 +3882,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0/0
+  m_Text: offline/0
 --- !u!1001 &2386270545362086030
 PrefabInstance:
   m_ObjectHideFlags: 0

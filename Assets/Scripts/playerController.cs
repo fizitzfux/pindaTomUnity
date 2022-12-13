@@ -5,7 +5,7 @@ using Unity.Netcode;
 
 public class playerController : NetworkBehaviour
 {
-    //VRAIABLES
+    // Variables
     [SerializeField] private float moveSpeed;
     [SerializeField] public float walkSpeed;
     [SerializeField] public float runSpeed;
@@ -19,7 +19,7 @@ public class playerController : NetworkBehaviour
     private Vector3 moveDirection;
     private Vector3 velocity;
 
-    //REFERENCES
+    // References
     private CharacterController controller;
     bool isGrounded;
     private Animator anim;
@@ -27,6 +27,7 @@ public class playerController : NetworkBehaviour
 
     private void Start()
     {
+        // Define all references
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
         Audio = GetComponent<AudioHandler>();
@@ -34,6 +35,7 @@ public class playerController : NetworkBehaviour
 
     private void Update()
     {
+        // If Client is owner of this player, move
         if (IsLocalPlayer) Move();
     }
 
@@ -86,6 +88,7 @@ public class playerController : NetworkBehaviour
     {
         moveSpeed = walkSpeed;
         anim.SetFloat("Speed", 2, 0.1f, Time.deltaTime);
+        // Play walking sound to all near players
         Audio.PlayerSound("walk");
     }
 
@@ -93,6 +96,7 @@ public class playerController : NetworkBehaviour
     { 
         moveSpeed = runSpeed;
         anim.SetFloat("Speed", 3, 0.1f, Time.deltaTime);
+        // Play running sound to all near players
         Audio.PlayerSound("run");
     }
 

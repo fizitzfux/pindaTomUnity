@@ -1,3 +1,5 @@
+// Could use a over-do ~Jip
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,16 +10,17 @@ using AddressFamily = System.Net.Sockets.AddressFamily;
 
 public class NetworkConfigSetter : MonoBehaviour
 {
+    // References
     [SerializeField] private Text localIp;
-    
+    // Variables
     private string ip;
     private ushort port;
     private bool client = true;
     private bool host = false;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Get the local IP address and store it in the Network-wide config
         IPHostEntry hostEntry = Dns.GetHostEntry(Dns.GetHostName());
         foreach (IPAddress ip in hostEntry.AddressList)
         {
@@ -29,12 +32,7 @@ public class NetworkConfigSetter : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Public function for setting connection IP
     public void SetIp(string Text)
     {
         ip = Text;
@@ -42,6 +40,7 @@ public class NetworkConfigSetter : MonoBehaviour
         NetworkConfig.ip = ip;
     }
 
+    // Public function for setting connection Port
     public void SetPort(string Text)
     {
         port = (ushort)UInt16.Parse(Text);
@@ -49,6 +48,7 @@ public class NetworkConfigSetter : MonoBehaviour
         NetworkConfig.port = port;
     }
 
+    // Public function for toggling Client
     public void ToggleClient()
     {
         client = !client;
@@ -56,6 +56,7 @@ public class NetworkConfigSetter : MonoBehaviour
         NetworkConfig.Client = client;
     }
 
+    // Public funtion for toggling Host feature-set
     public void ToggleHost()
     {
         host = !host;
@@ -66,6 +67,7 @@ public class NetworkConfigSetter : MonoBehaviour
     }
 }
 
+// Public and static Network-wide available class with all necessary data
 public static class NetworkConfig
 {
     public static string ip = "127.0.0.1";

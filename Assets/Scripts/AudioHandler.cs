@@ -6,19 +6,20 @@ using Unity.Netcode;
 
 public class AudioHandler : NetworkBehaviour
 {
+    //Variables
     private AudioSource Audio;
-    public string Object;
-    public AudioClip[] AudioClips;
-    public GameObject SoundObjectPrefab;
-
     private bool donePlaying = true;
     private int step = 0;
+    public string Object;
+    //References
+    public AudioClip[] AudioClips;
+    public GameObject SoundObjectPrefab;
 
 
     void Start()
     {
         Audio = GetComponent<AudioSource>();
-
+        // If audio for scene, get scenename
         if (Object == "scene") Object = SceneManager.GetActiveScene().name;
     }
 
@@ -30,13 +31,14 @@ public class AudioHandler : NetworkBehaviour
             if (step == 0)
             {
                 donePlaying = false;
-
+                // Start audio
                 Audio.clip = AudioClips[0];
                 Audio.GetComponent<AudioSource>().Play();
 
                 StartCoroutine(waitAudio(Audio.clip));
                 step = 1;
             }
+            // When done with audio 1, play audio 2
             if (step == 1 && donePlaying)
             {
                 donePlaying = false;
@@ -49,21 +51,25 @@ public class AudioHandler : NetworkBehaviour
         }
     }
 
+    // Waits for Audio.length amount of time
     private IEnumerator waitAudio(AudioClip Audio, GameObject Object = null)
     {
         yield return new WaitForSeconds(Audio.length);
+        // After track destroy Object
         donePlaying = true;
         if (Object != null) Destroy(Object);
     }
 
+    // Call to server to play track at pos to all players
     [ServerRpc(RequireOwnership = false)]
-    public void AudioServerRpc(int track, Vector3 pos)
+    private void AudioServerRpc(int track, Vector3 pos)
     {
         AudioClientRpc(track, pos);
     }
 
+    // Call to all clients from server to play track at pos
     [ClientRpc]
-    public void AudioClientRpc(int track, Vector3 pos)
+    private void AudioClientRpc(int track, Vector3 pos)
     {
         GameObject AudioPlayerObject = Instantiate(SoundObjectPrefab, pos, Quaternion.identity);
         AudioSource AudioObject = AudioPlayerObject.GetComponent<AudioSource>();
@@ -74,6 +80,7 @@ public class AudioHandler : NetworkBehaviour
         StartCoroutine(waitAudio(AudioObject.clip, AudioPlayerObject));
     }
     
+    // Public function for playermovement soundeffects
     public void PlayerSound(string sound)
     {
         if (donePlaying)
@@ -91,6 +98,7 @@ public class AudioHandler : NetworkBehaviour
         }
     }
 
+    // Public function for setting global application volume
     public void SetApplicationVolume(float value)
     {
         AudioListener.volume = value;

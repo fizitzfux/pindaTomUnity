@@ -1,3 +1,5 @@
+// Literally one line, can probably be merged with something else ~Jip
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +7,12 @@ using Unity.Netcode;
 
 public class NetworkCameraController : NetworkBehaviour
 {
+    // References
     public GameObject Camera;
-    public Vector3 offset;
 
     void Start()
     {
-        if (IsOwner)
-        {
-            Camera.SetActive(true);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Set camera active if client owns it
+        if (IsOwner)    Camera.SetActive(true);
     }
 }

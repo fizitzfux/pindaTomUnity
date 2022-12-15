@@ -105,6 +105,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   jumpHeight: 1
+  playerModel: {fileID: 2827603317122139352}
 --- !u!114 &4575873028810101361
 MonoBehaviour:
   m_ObjectHideFlags: 0

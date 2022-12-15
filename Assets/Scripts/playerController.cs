@@ -16,6 +16,8 @@ public class playerController : NetworkBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float jumpHeight;
 
+    [SerializeField] private GameObject playerModel;
+
     private Vector3 moveDirection;
     private Vector3 velocity;
 
@@ -77,6 +79,8 @@ public class playerController : NetworkBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        // Set position of player model to player position
+        playerModel.transform.position = new Vector3(this.transform.position.x, playerModel.transform.position.y, this.transform.position.z);
     }
     
     private void Idle()

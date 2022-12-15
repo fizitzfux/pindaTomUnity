@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
-public class MenuUI : MonoBehaviour
+public class MenuUI : NetworkBehaviour
 {
     // VARIABLES
     private bool MenuOpen = false;
@@ -75,5 +77,21 @@ public class MenuUI : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    // Handler for Main menu button in the menu
+    public void DisconnectButton()
+    {
+        NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene("MainMenu");
+    }
+    // Handler for Exit button in the menu
+    public void ExitButton()
+    {
+        NetworkManager.Singleton.Shutdown();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
     }
 }

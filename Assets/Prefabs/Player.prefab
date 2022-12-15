@@ -7307,11 +7307,40 @@ PrefabInstance:
       propertyPath: function
       value: load MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3589499159665154828}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisconnectButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6623257030223894501, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
       propertyPath: m_Name
       value: QuitButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2336493019788116392, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
 --- !u!224 &7874506829620218697 stripped
 RectTransform:
@@ -7453,7 +7482,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContinueButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2336493019788116392, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
 --- !u!224 &7874506830867805024 stripped
 RectTransform:
@@ -7563,11 +7593,40 @@ PrefabInstance:
       propertyPath: function
       value: exit
       objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3589499159665154828}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336493019788116393, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6623257030223894501, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2336493019788116392, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e341e3c123a40746b88b1d5aa349cbf, type: 3}
 --- !u!224 &7874506830621445024 stripped
 RectTransform:

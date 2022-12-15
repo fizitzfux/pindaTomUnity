@@ -9,10 +9,10 @@ public class Health : MonoBehaviour
     public event HealthChangedHandler OnHealthChanged;
 
     // VARIABLES
-    public float maxHealth;
-    public float testdamage = -5f;
-    public float testhealing = 5f;
-    public float currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float testdamage = -5f;
+    [SerializeField] private float testhealing = 5f;
+    [SerializeField] float currentHealth;
 
     // REFERENCES
     public float CurrentHealth => currentHealth;

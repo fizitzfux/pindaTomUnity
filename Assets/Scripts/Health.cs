@@ -46,5 +46,12 @@ public class Health : MonoBehaviour
             ChangeHealth(testdamage);
             Debug.Log("Health is " + currentHealth);
         }
+
+        if(currentHealth <= 0f)
+        {
+            // Teleport player to spawning area and disable damage
+            this.GetComponent<playerController>().Teleport(new Vector3(0, 1.5f, 0));
+            this.GetComponent<Health>().enabled = false;
+        }
     }
 }

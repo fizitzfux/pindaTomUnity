@@ -108,4 +108,23 @@ public class playerController : NetworkBehaviour
     {
         anim.SetFloat("Speed", 4, 0.1f, Time.deltaTime);
     }
+
+    // Public funtion, used to teleport the player to pos
+    public void Teleport(Vector3 pos)
+    {
+        if (IsLocalPlayer)
+        {
+            // Teleports player and disables movement for 0.1 sec
+            this.GetComponent<playerController>().enabled = false;
+            this.transform.position = pos;
+            StartCoroutine(WaitBeforeEnable(0.1f));
+        }
+    }
+    // Helper function for Teleport()
+    private IEnumerator WaitBeforeEnable(float delay)
+    {
+        // After 0.1 sec re-enable movement
+        yield return new WaitForSeconds(delay);
+        this.GetComponent<playerController>().enabled = true;
+    }
 }

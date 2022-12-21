@@ -17,8 +17,16 @@ public class Lobby : NetworkBehaviour
     // References
     public Text stateText;
     public Text startText;
+    public Text ipText;
     public GameObject player;
     public GameObject lobbyCanvas;
+
+
+    void Start()
+    {
+        //Set user IP to display on screen
+        ipText.text = NetworkConfig.localIp;
+    }
 
 
     void Update()
@@ -90,17 +98,8 @@ public class Lobby : NetworkBehaviour
     [ClientRpc]
     private void PlayerTeleportClientRpc(Vector3 pos, ClientRpcParams rpcParams = default)
     {
-        // Teleports player and disables movement for 0.1 sec
-        player.GetComponent<playerController>().enabled = false;
-        player.transform.position = pos;
-        StartCoroutine(WaitBeforeEnable(0.1f));
-    }
-    // Helper function for PlayerTeleportClientRpc
-    private IEnumerator WaitBeforeEnable(float delay)
-    {
-        // After 0.1 sec enable movement and disable the Lobby UI
-        yield return new WaitForSeconds(delay);
-        player.GetComponent<playerController>().enabled = true;
+        player.GetComponent<playerController>().Teleport(pos);
+        player.GetComponent<Health>().enabled = true;
         lobbyCanvas.SetActive(false);
     }
 }

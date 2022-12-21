@@ -71,13 +71,16 @@ public class AudioHandler : NetworkBehaviour
     [ClientRpc]
     private void AudioClientRpc(int track, Vector3 pos)
     {
-        GameObject AudioPlayerObject = Instantiate(SoundObjectPrefab, pos, Quaternion.identity);
-        AudioSource AudioObject = AudioPlayerObject.GetComponent<AudioSource>();
+        if (IsLocalPlayer)
+        {
+            GameObject AudioPlayerObject = Instantiate(SoundObjectPrefab, pos, Quaternion.identity);
+            AudioSource AudioObject = AudioPlayerObject.GetComponent<AudioSource>();
 
-        AudioObject.clip = AudioClips[track];
-        AudioObject.GetComponent<AudioSource>().Play();
+            AudioObject.clip = AudioClips[track];
+            AudioObject.GetComponent<AudioSource>().Play();
 
-        StartCoroutine(waitAudio(AudioObject.clip, AudioPlayerObject));
+            StartCoroutine(waitAudio(AudioObject.clip, AudioPlayerObject));
+        }
     }
     
     // Public function for playermovement soundeffects

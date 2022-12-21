@@ -26,16 +26,19 @@ public class MenuUI : NetworkBehaviour
 
     private void Update()
     {
-        // Toggle the menu UI
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IsLocalPlayer)
         {
-            if(MenuOpen)    CloseMenu();
-            else            OpenMenu();
-        }
-        // If Menu open and Pressed E, close so Inventory can open
-        else if (MenuOpen && Input.GetKeyDown(KeyCode.E))
-        {
-            CloseMenu();
+            // Toggle the menu UI
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (MenuOpen) CloseMenu();
+                else OpenMenu();
+            }
+            // If Menu open and Pressed E, close so Inventory can open
+            else if (MenuOpen && Input.GetKeyDown(KeyCode.E))
+            {
+                CloseMenu();
+            }
         }
     }
 

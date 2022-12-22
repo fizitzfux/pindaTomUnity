@@ -19,11 +19,13 @@ public class Health : MonoBehaviour
 
     public void Start()
     {
+        // Zet je health naar de maxHealth
         currentHealth = maxHealth;
     }
 
     public void ChangeHealth(float amount)
     {
+        // Zorgt dat je nieuwe health de current health wordt en dat dit alsnog kan veranderen door de invoke functie
         float oldHealth = currentHealth;
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -35,6 +37,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        // Healing toevoegen en healing afhalen
         if(Input.GetKeyDown(KeyCode.Q))
         {
             ChangeHealth(testhealing);

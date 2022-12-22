@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+        // Roept de Walkspeed, Runspeed en MouseSensitivity aan van de player om deze te beinvloeden in dit script
         normalWalkSpeed = this.Player.GetComponent<playerController>().walkSpeed;
         normalRunSpeed = this.Player.GetComponent<playerController>().runSpeed;
         normalMouseSensitivity = this.Camera.GetComponent<CameraController>().mouseSensitivity;
@@ -34,6 +35,7 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
+        // Code om de inventory te openen en te sluiten
         if(Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Inventory toggled");
